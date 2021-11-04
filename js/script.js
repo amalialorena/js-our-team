@@ -37,7 +37,7 @@ const team = [
     nome: "Scott Estrada",
     ruolo: "developer",
     foto: "img/scott-estrada-developer.jpg",
-  },
+  }
 ];
 
 // - Prendendo come riferimento il layout di esempio presente nell’html, stampiamo tutte le card del nostro team.
@@ -72,3 +72,23 @@ cards(team);
 // - Utilizziamo poi gli input presenti nella pagina per permettere all’utente di aggiungere nuovi membri del team.
     //seleziono gli elementi di input del dom
     //li trasformo in un ogetto da pushare nel mio array
+
+let newMemberName = document.getElementById("name").innerText;
+let newMemberRole = document.getElementById("role").innerText;
+let newMemberImage = document.getElementById("image").innerText;
+let addMember = document.getElementById("addMemberButton");
+// let newMember = {
+//     nome : newMemberName,
+//     ruolo : newMemberRole,
+//     foto : newMemberImage
+// };
+
+
+console.log(team)
+
+addMember.addEventListener("click",
+    function(){
+        console.log("hello");
+         team.push(newMember)
+    }
+)
