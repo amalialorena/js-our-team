@@ -42,7 +42,7 @@ const team = [
 
 // - Prendendo come riferimento il layout di esempio presente nell’html, stampiamo tutte le card del nostro team.
 //faccio un ciclo che mi prende tutti i dati contenuti negli oggetti
-// quei dati li stampo in pagina
+// stampo in pagina i dati ottenuti
 
 let cardsContainer = document.querySelector(".team-container");
 function cards(team) {
@@ -53,20 +53,22 @@ function cards(team) {
     console.log(teamObj.foto);
 
     cardsContainer.innerHTML += `<div class="team-card">
-    <div class="card-image">
-  <img
-    src=${teamObj.foto}
-    alt=${teamObj.nome}
-  />
-</div>
-<div class="card-text">
-  <h3>${teamObj.nome}</h3>
-  <p>${teamObj.ruolo}</p>
-</div>
-</div>`;
+        <div class="card-image">
+    <img
+        src=${teamObj.foto}
+        alt=${teamObj.nome}
+    />
+    </div>
+    <div class="card-text">
+    <h3>${teamObj.nome}</h3>
+    <p>${teamObj.ruolo}</p>
+    </div>
+    </div>`;
   }
 }
 
 cards(team);
 
 // - Utilizziamo poi gli input presenti nella pagina per permettere all’utente di aggiungere nuovi membri del team.
+    //seleziono gli elementi di input del dom
+    //li trasformo in un ogetto da pushare nel mio array
