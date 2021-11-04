@@ -51,9 +51,9 @@ let cardsContainer = document.querySelector(".team-container");
 
 for(let i = 0; i < team.length; i++) {
     let teamObj = team[i]
-    for (let key in teamObj) {
-        console.log(teamObj[key]);
-    }
+    console.log(teamObj.nome);
+    console.log(teamObj.ruolo);
+    console.log(teamObj.foto);
 }
 
 // - Utilizziamo poi gli input presenti nella pagina per permettere all’utente di aggiungere nuovi membri del team.
