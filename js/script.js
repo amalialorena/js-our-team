@@ -37,7 +37,7 @@ const team = [
     nome: "Scott Estrada",
     ruolo: "developer",
     foto: "img/scott-estrada-developer.jpg",
-  }
+  },
 ];
 
 // - Prendendo come riferimento il layout di esempio presente nell’html, stampiamo tutte le card del nostro team.
@@ -45,50 +45,44 @@ const team = [
 // stampo in pagina i dati ottenuti
 
 let cardsContainer = document.querySelector(".team-container");
+let newMemberName = document.getElementById("name");
+let newMemberRole = document.getElementById("role");
+let newMemberImage = document.getElementById("image");
+let addMember = document.getElementById("addMemberButton");
+
 function cards(team) {
+  let cardsHTML = "";
+
   for (let i = 0; i < team.length; i++) {
     let teamObj = team[i];
-    console.log(teamObj.nome);
-    console.log(teamObj.ruolo);
-    console.log(teamObj.foto);
-
-    cardsContainer.innerHTML += `<div class="team-card">
+   
+    cardsHTML += `<div class="team-card">
         <div class="card-image">
-    <img
-        src=${teamObj.foto}
-        alt=${teamObj.nome}
-    />
-    </div>
-    <div class="card-text">
-    <h3>${teamObj.nome}</h3>
-    <p>${teamObj.ruolo}</p>
-    </div>
+             <img src=${teamObj.foto} alt=${teamObj.nome}/>
+        </div>
+        <div class="card-text">
+            <h3>${teamObj.nome}</h3>
+            <p>${teamObj.ruolo}</p>
+        </div>
     </div>`;
   }
+
+  cardsContainer.innerHTML = cardsHTML;
 }
 
-cards(team);
-
 // - Utilizziamo poi gli input presenti nella pagina per permettere all’utente di aggiungere nuovi membri del team.
-    //seleziono gli elementi di input del dom
-    //li trasformo in un ogetto da pushare nel mio array
+//seleziono gli elementi di input del dom
+//li trasformo in un ogetto da pushare nel mio array
 
-let newMemberName = document.getElementById("name").innerText;
-let newMemberRole = document.getElementById("role").innerText;
-let newMemberImage = document.getElementById("image").innerText;
-let addMember = document.getElementById("addMemberButton");
-// let newMember = {
-//     nome : newMemberName,
-//     ruolo : newMemberRole,
-//     foto : newMemberImage
-// };
+addMember.addEventListener("click", function () {
+  let newMember = {
+    nome: newMemberName.value,
+    ruolo: newMemberRole.value,
+    foto: newMemberImage.value,
+  };
 
+  team.push(newMember);
+  cards(team);
+});
 
-console.log(team)
-
-addMember.addEventListener("click",
-    function(){
-        console.log("hello");
-         team.push(newMember)
-    }
-)
+cards(team);
